@@ -1,0 +1,45 @@
+.card__poster__wrapper {
+  @apply relative max-h-[380px] max-w-[260px] scale-100 transform-gpu cursor-pointer overflow-hidden rounded-md transition ease-in-out hover:scale-95 hover:rounded-md;
+
+  img {
+    @apply h-[380px] w-[100%] scale-100 overflow-hidden rounded-md object-cover;
+  }
+
+  .detail__wrapper {
+    @apply absolute bottom-0 left-0 flex w-full flex-col rounded-b-md bg-gray-900 bg-opacity-50 bg-clip-padding p-4 backdrop-blur-md backdrop-filter;
+
+    .detail__loc__date {
+      @apply flex text-xs uppercase text-white;
+
+      span {
+        @apply text-yellow-500;
+      }
+    }
+
+    h2 {
+      @apply text-base font-bold uppercase text-white line-clamp-1;
+    }
+
+    .detail__rate__wrapper {
+      @apply my-1 flex items-center gap-3;
+      .vote__average {
+        @apply flex items-center gap-1;
+
+        p {
+          @apply text-xs text-white;
+        }
+      }
+      .vote__count {
+        @apply flex items-center gap-1;
+
+        p {
+          @apply text-xs text-white;
+        }
+      }
+    }
+
+    .genre__list {
+      @apply text-[10px] font-semibold text-gray-300 line-clamp-1;
+    }
+  }
+}

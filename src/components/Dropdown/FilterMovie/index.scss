@@ -1,0 +1,11 @@
+.button__filter__movie {
+  .arrow__wrapper {
+    @apply -translate-x-2 transition ease-in-out;
+  }
+
+  &:hover {
+    .arrow__wrapper {
+      @apply translate-x-0;
+    }
+  }
+}

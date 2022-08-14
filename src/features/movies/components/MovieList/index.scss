@@ -1,0 +1,16 @@
+.movie__list__section {
+  .hero__movie {
+    @apply relative w-full;
+
+    .hero__title {
+      @apply absolute top-5  left-5 flex rounded-lg bg-gray-400 bg-opacity-0 bg-clip-padding p-2 text-4xl font-bold text-white backdrop-blur-sm backdrop-filter;
+    }
+
+    img {
+      @apply h-[350px] w-full min-w-[253px] rounded-md object-cover;
+    }
+  }
+  .card__poster__list {
+    @apply flex flex-wrap justify-center gap-10;
+  }
+}

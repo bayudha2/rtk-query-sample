@@ -1,0 +1,42 @@
+.card__movie__wrapper {
+  @apply relative max-h-[250px] max-w-[400px];
+
+  figure {
+    img {
+      @apply h-[250px] w-[400px] rounded-lg object-cover;
+    }
+  }
+
+  .detail__wrapper {
+    @apply absolute bottom-0 left-0 flex w-full rounded-b-lg bg-gray-200 bg-opacity-0 bg-clip-padding p-4 backdrop-blur-sm backdrop-filter;
+
+    .detail__info__wrapper {
+      @apply my-auto flex gap-2;
+
+      .detail__info {
+        h2 {
+          @apply w-[50%] text-sm font-semibold text-white line-clamp-1;
+        }
+
+        p {
+          @apply w-[80%] text-xs text-white line-clamp-1;
+        }
+      }
+    }
+    .detail__rate {
+      @apply flex items-center gap-1 border-l border-solid border-gray-200 pl-2;
+
+      p {
+        @apply text-sm font-semibold text-white;
+      }
+    }
+  }
+  .detail__date {
+    @apply absolute top-0 right-0 flex items-center gap-1 rounded-bl-lg rounded-tr-lg p-2;
+    background: rgba(92, 92, 92, 0.5);
+
+    p {
+      @apply text-xs text-white;
+    }
+  }
+}

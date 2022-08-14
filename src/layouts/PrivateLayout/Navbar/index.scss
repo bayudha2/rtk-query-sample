@@ -1,0 +1,42 @@
+.navbar__app {
+  @apply sticky top-0 z-10 flex w-full items-center justify-between border-b border-solid border-gray-700 bg-main-black p-8;
+
+  h1 {
+    @apply text-xl font-semibold text-white;
+  }
+
+  .nav__wrapper {
+    ul {
+      @apply hidden items-center md:flex md:gap-12;
+
+      li {
+        @apply font-semibold text-gray-500;
+
+        .isActive {
+          @apply relative flex items-center justify-center text-white;
+
+          &::before {
+            content: '';
+            background-image: url(/icons/indicator-main.svg);
+            display: block;
+            position: absolute;
+            width: 64px;
+            height: 26px;
+            top: -36px;
+            background-repeat: no-repeat;
+          }
+          &::after {
+            content: '';
+            background-image: url(/icons/indicator-backdrop-shadow.svg);
+            display: block;
+            position: absolute;
+            width: 128px;
+            height: 32px;
+            top: -36px;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+  }
+}

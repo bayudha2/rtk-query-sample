@@ -1,0 +1,5 @@
+.movie__result__section {
+  .card__result__list {
+    @apply flex flex-wrap justify-center gap-10;
+  }
+}

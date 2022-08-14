@@ -1,0 +1,11 @@
+.btn__delete {
+  &:hover {
+    .trash-icon {
+      @apply text-white;
+    }
+  }
+
+  .trash-icon {
+    @apply h-4 w-4 text-gray-500 transition-all ease-in-out;
+  }
+}
