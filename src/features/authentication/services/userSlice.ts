@@ -14,7 +14,7 @@ export const userSlice = createApi({
       return headers
     },
   }),
-  endpoints: (builder) => ({}),
+  endpoints: () => ({}),
   reducerPath: 'user',
   tagTypes: ['User', 'Users'],
 })
@@ -29,7 +29,7 @@ export const userSliceReqres = createApi({
       return headers
     },
   }),
-  endpoints: (builder) => ({}),
+  endpoints: () => ({}),
   reducerPath: 'reqres',
   tagTypes: ['Users'],
 })

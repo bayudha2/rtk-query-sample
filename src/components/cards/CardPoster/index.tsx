@@ -18,7 +18,6 @@ type PropsType = {
 }
 
 function CardPoster({
-  backdrop_path,
   release_date,
   title,
   poster_path,

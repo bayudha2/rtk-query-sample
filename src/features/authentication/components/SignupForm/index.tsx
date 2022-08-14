@@ -1,9 +1,9 @@
 import { useFormik } from 'formik'
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 
-import { useSignupMutation } from '@/features/authentication'
+// import { useSignupMutation } from '@/features/authentication'
 
 interface InitialValue {
   name: string
@@ -18,8 +18,7 @@ const initialValue: InitialValue = {
 }
 
 function SignupForm() {
-  const [signup, { isLoading }] = useSignupMutation()
-  const navigate = useNavigate()
+  // const [signup, { isLoading }] = useSignupMutation()
 
   const {
     isValid,
@@ -32,10 +31,9 @@ function SignupForm() {
     values,
   } = useFormik({
     initialValues: initialValue,
-    onSubmit: async (values: InitialValue) => {
+    onSubmit: async () => {
       try {
-        const userData = await signup(values).unwrap()
-
+        // const userData = await signup(values).unwrap()
         // navigate('/')
       } catch (err) {
         // eslint-disable-next-line no-alert
@@ -121,7 +119,7 @@ function SignupForm() {
         className="mt-6 w-full rounded-md bg-emerald-500 py-3 font-semibold text-white disabled:bg-gray-400"
         disabled={!(isValid && dirty)}
       >
-        {isLoading ? 'Logging...' : 'Sign up'}
+        {'Sign up'}
       </button>
     </form>
   )

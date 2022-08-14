@@ -3,10 +3,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 
-import {
-  useLoginMutation,
-  useLoginReqresMutation,
-} from '@/features/authentication'
+import { useLoginMutation } from '@/features/authentication'
 import useCookie from '@/utils/useCookies'
 
 interface InitialValue {

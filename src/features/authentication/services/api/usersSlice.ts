@@ -44,7 +44,7 @@ export const extendedUserSlice = userSlice.injectEndpoints({
       }),
     }),
     updateUser: builder.mutation<DetailUser, Partial<Users>>({
-      invalidatesTags: (result, error, arg) => [{ id: arg.id, type: 'Users' }],
+      invalidatesTags: (_, __, arg) => [{ id: arg.id, type: 'Users' }],
       query: (body) => ({
         body,
         method: 'PUT',

@@ -14,7 +14,7 @@ function Dashboard() {
     if (null !== searchRef.current) searchRef.current.focus()
   }, [])
 
-  function handleSubmit(e: React.ChangeEvent<HTMLFormElement>) {
+  function handleSubmit() {
     if (null !== searchRef.current) setTitleValue(searchRef.current.value)
   }
 

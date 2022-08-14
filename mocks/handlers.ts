@@ -1,7 +1,7 @@
 import { rest } from 'msw'
 
 export const handlers = [
-  rest.get('/docs_list', (req, res, ctx) => {
+  rest.get('/docs_list', (_, res, ctx) => {
     const data = [
       { name: 'Redux Toolkit', url: 'https://redux-toolkit.js.org/' },
       { name: 'MSW', url: 'https://mswjs.io/' },

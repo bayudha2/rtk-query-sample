@@ -5,10 +5,7 @@ import ReactPaginate from 'react-paginate'
 import { Link } from 'react-router-dom'
 
 import TableUser from '@/components/Tables/TableUser'
-import {
-  useGetUsersQuery,
-  useGetUsersReqresQuery,
-} from '@/features/authentication'
+import { useGetUsersQuery } from '@/features/authentication'
 
 function ListUser() {
   const [currentPage, setCurrentPage] = useState(1)

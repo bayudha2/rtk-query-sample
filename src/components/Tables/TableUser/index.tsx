@@ -2,7 +2,7 @@ import moment from 'moment'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import type { UserReqres, Users } from '@/features/authentication'
+import type { Users } from '@/features/authentication'
 
 function TableUser({ users }: { users: Users[] }) {
   return (
