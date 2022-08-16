@@ -13,6 +13,7 @@ type PropsType = {
   backdrop_path: string
   poster_path: string
   original_language: string
+  id: number
 }
 
 function ResultMovie({ titleValue }: { titleValue: string }) {
