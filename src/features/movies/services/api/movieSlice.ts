@@ -2,7 +2,7 @@ import { createEntityAdapter, createSelector } from '@reduxjs/toolkit'
 
 import { apiSlice } from '../apiSlice'
 
-import type { Upcoming, Genre } from './types'
+import type { Upcoming, MovieType, Genre } from './types'
 
 import config from '@/app/config'
 
@@ -28,6 +28,11 @@ function providesList<R extends { id: string | number }[], T extends string>(
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    getMovie: builder.query<MovieType, string | number | undefined>({
+      providesTags: (result) => [{ id: result?.id, type: 'Movie' }],
+      query: (id) =>
+        `movie/${id}/videos?api_key=${config.API_KEY}&language=en-US`,
+    }),
     getMovieGenre: builder.query<any, void>({
       providesTags: (result) => {
         return [
@@ -51,7 +56,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     getPopularMovies: builder.query<any, ArgType>({
       providesTags: (result) => providesList(result, 'Discover'),
       query: ({ filter }) =>
-        `discover/movie?api_key=${config.API_KEY}&language=en-US&sort_by=${filter}&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`,
+        `discover/movie?api_key=${config.API_KEY}&language=en-US&sort_by=${filter}&include_adult=false&include_video=true&page=1&with_watch_monetization_types=flatrate`,
       transformResponse: (responseData: Upcoming) => {
         const payload = responseData.results.slice(0, 2)
         return payload
@@ -69,6 +74,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
 })
 
 export const {
+  useGetMovieQuery,
   useGetPopularMoviesQuery,
   useGetMoviesQuery,
   useGetMovieGenreQuery,

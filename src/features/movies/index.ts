@@ -3,6 +3,7 @@ import MovieList from './components/MovieList'
 import ResultMovie from './components/ResultMovie'
 import {
   useGetMovieGenreQuery,
+  useGetMovieQuery,
   useGetPopularMoviesQuery,
   useGetSearchMoviesQuery,
   useGetMoviesQuery,
@@ -20,6 +21,7 @@ export {
   useGetMoviesQuery,
   useGetPopularMoviesQuery,
   useGetSearchMoviesQuery,
+  useGetMovieQuery,
   // selectPopularMovies,
   // useGetMoviesQuery,
 }

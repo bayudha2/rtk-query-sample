@@ -4,10 +4,13 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useSelector } from 'react-redux'
 
 import { selectAllGenre } from '@/features/movies'
+
 import './index.scss'
+import { Link } from 'react-router-dom'
 
 type PropsType = {
   title: string
+  id: number
   release_date: string
   vote_average: number
   vote_count: number
@@ -25,6 +28,7 @@ function CardPoster({
   genre_ids,
   vote_count,
   vote_average,
+  id,
 }: PropsType) {
   const genreState = useSelector(selectAllGenre)
 
@@ -40,7 +44,16 @@ function CardPoster({
   })
 
   return (
-    <div className="card__poster__wrapper">
+    <Link
+      to={{
+        pathname: `/movie/${id}`,
+      }}
+      state={{
+        id: id,
+        modal: true,
+      }}
+      className="card__poster__wrapper"
+    >
       <div className="rounded-md">
         <LazyLoadImage
           alt={'movie_poster'}
@@ -68,7 +81,7 @@ function CardPoster({
         </div>
         <p className="genre__list">{genres.join(', ')}</p>
       </div>
-    </div>
+    </Link>
   )
 }
 

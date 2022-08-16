@@ -5,9 +5,11 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import Toaster from './components/Toaster'
 import AuthLayouts from './layouts/AuthLayout'
+import MovieLayout from './layouts/MovieLayout'
 import PrivateLayouts from './layouts/PrivateLayout'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
+import Movie from './pages/Movie'
 import Movies from './pages/Movies'
 import PageNotFound from './pages/PageNotFound'
 import Signup from './pages/Signup'
@@ -50,6 +52,9 @@ const App: React.FC = () => {
               })}
               <Route path="/users" element={<Users />}>
                 <Route path=":id" element={<User />} />
+              </Route>
+              <Route path="/movie" element={<MovieLayout />}>
+                <Route path=":id" element={<Movie />} />
               </Route>
             </Route>
           </Route>
