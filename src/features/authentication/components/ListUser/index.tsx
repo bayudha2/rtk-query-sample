@@ -1,17 +1,16 @@
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import type { ReactNode } from 'react'
 import React, { useState } from 'react'
-import ReactPaginate from 'react-paginate'
 import { Link } from 'react-router-dom'
 
+import Pagination from '@/components/Pagination'
 import TableUser from '@/components/Tables/TableUser'
-import { useGetUsersQuery } from '@/features/authentication'
+import { useGetUsersReqresQuery } from '@/features/authentication'
 
 function ListUser() {
   const [currentPage, setCurrentPage] = useState(1)
 
   const { data, isLoading, isFetching, isError, isSuccess, error } =
-    useGetUsersQuery(currentPage)
+    useGetUsersReqresQuery(currentPage)
 
   let userData: ReactNode
 
@@ -39,7 +38,7 @@ function ListUser() {
           <h2 className="text-base text-gray-300">
             current active{' '}
             <span className="font-extrabold text-white">
-              {data ? data.totalrecord : '...'}
+              {data ? data.total : '...'}
             </span>{' '}
             users
           </h2>
@@ -50,34 +49,14 @@ function ListUser() {
             state={{
               modal: true,
             }}
-            className="rounded-md bg-emerald-500 p-2 text-white"
+            className="pointer-events-none rounded-md bg-gray-500 p-2 text-white"
           >
             Add User
           </Link>
         </div>
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel={
-            <div className="flex items-center gap-1">
-              Next
-              <ChevronRightIcon className="h-5 w-5 text-gray-300 disabled:text-gray-500" />
-            </div>
-          }
-          nextClassName="text-sm font-semibold"
-          disabledClassName="text-gray-500 cursor-not-allowed pointer-events-none"
-          onPageChange={handlePageClick}
-          className="flex items-center gap-6 text-sm text-gray-300"
-          activeClassName="font-bold px-2 py-1 rounded-sm bg-gray-800"
-          pageRangeDisplayed={10}
-          pageCount={10}
-          previousLabel={
-            <div className="flex items-center gap-1">
-              <ChevronLeftIcon className="h-5 w-5 text-gray-300 disabled:text-gray-500" />
-              Prev
-            </div>
-          }
-          previousClassName="text-sm font-semibold"
-          renderOnZeroPageCount={() => null}
+        <Pagination
+          handlePageChange={handlePageClick}
+          total_pages={data?.total_pages}
         />
       </div>
       <div className="mb-4 hidden overflow-x-auto whitespace-nowrap md:block">

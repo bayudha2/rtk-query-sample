@@ -2,9 +2,9 @@ import moment from 'moment'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import type { Users } from '@/features/authentication'
+import type { UserReqres } from '@/features/authentication'
 
-function TableUser({ users }: { users: Users[] }) {
+function TableUser({ users }: { users: UserReqres[] }) {
   return (
     <table className="table-auto text-gray-300">
       <thead className="bg-gray-700">
@@ -32,21 +32,23 @@ function TableUser({ users }: { users: Users[] }) {
                 <td className="flex items-center gap-4 py-2 px-6 text-sm">
                   <figure>
                     <img
-                      src={user.profilepicture}
+                      src={user.avatar}
                       alt="user_image"
                       className="h-10 w-10 rounded-md object-cover"
                     />
                   </figure>
                   <div>
-                    <p className="text-base font-bold">{user.name}</p>
+                    <p className="text-base font-bold">
+                      {user.first_name + ' ' + user.last_name}
+                    </p>
                     <p className="cursor-pointer text-xs text-blue-600">
                       {user.email}
                     </p>
                   </div>
                 </td>
-                <td className="py-2 px-6 text-sm font-bold">{user.location}</td>
+                <td className="py-2 px-6 text-sm font-bold">ENG</td>
                 <td className="py-2 px-6 text-sm">
-                  {moment(user.createdat).format('DD MMMM YYYY')}
+                  {moment(new Date()).format('DD MMMM YYYY')}
                 </td>
                 <td className="py-2 px-6 text-sm">
                   <Link
@@ -57,7 +59,7 @@ function TableUser({ users }: { users: Users[] }) {
                       id: user.id,
                       modal: true,
                     }}
-                    className="rounded-md bg-emerald-500 p-2"
+                    className="pointer-events-none rounded-md bg-gray-500 p-2"
                   >
                     Detail
                   </Link>

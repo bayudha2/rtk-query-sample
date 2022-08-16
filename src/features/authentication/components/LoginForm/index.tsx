@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 
-import { useLoginMutation } from '@/features/authentication'
+import { useLoginReqresMutation } from '@/features/authentication'
 import useCookie from '@/utils/useCookies'
 
 interface InitialValue {
@@ -21,7 +21,7 @@ function LoginForm({
 }: {
   autoFill: { email: string; password: string }
 }) {
-  const [login, { isLoading }] = useLoginMutation()
+  const [login, { isLoading }] = useLoginReqresMutation()
   const navigate = useNavigate()
 
   const { setUserCookie } = useCookie()
@@ -48,7 +48,7 @@ function LoginForm({
     onSubmit: async (values: InitialValue) => {
       const userData = await login(values).unwrap()
 
-      setUserCookie(userData.data)
+      setUserCookie({ Token: userData.token })
       navigate('/search')
     },
     validationSchema: Yup.object({
